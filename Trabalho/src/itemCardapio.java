@@ -9,6 +9,6 @@ public class itemCardapio {
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
-        this.itemID = centralDeDados.gerarProdutoItemID();
+        this.itemID = centralDeDados.gerarProximoItemID();
     }
 }
