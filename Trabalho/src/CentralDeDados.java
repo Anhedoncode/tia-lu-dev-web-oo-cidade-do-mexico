@@ -1,51 +1,51 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class CentralDeDados {
 
-
-    // a ideia da central de dados é armazenar a regra de negócio do sistema
-    private static CentralDeDados instancia;
-
-
     private List<Clientes> clientes;
+    private List<itemCardapio> itensCardapio;
     private List<Pedidos> pedidos;
-    private List<itemCardapio> itemCardapio;
-
 
     private int contadorCliente = 0;
     private int contadorItem = 0;
-    private int contadorPedido;
+    private int contadorPedido = 0;
 
-
-    private CentralDeDados(){
-
-
+    public CentralDeDados() {
         this.clientes = new ArrayList<>();
+        this.itensCardapio = new ArrayList<>();
         this.pedidos = new ArrayList<>();
-        this.itemCardapio = new ArrayList<>();
     }
 
-
-    public static CentralDeDados getInstancia(){
-        if (instancia == null){
-            instancia = new CentralDeDados();
-        }
-
-
-        return instancia;
-    }
-
-
-    public int gerarProximoNumeroPedido(){
-        this.contadorPedido++;
-        return contadorPedido;
-    }
-
-
-    public int gerarProximoItemID(){
+    public int gerarProximoItemID() {
         this.contadorItem++;
-        return contadorItem;
+        return this.contadorItem;
+    }
+
+    public int gerarProximoNumeroPedido() {
+        this.contadorPedido++;
+        return this.contadorPedido;
+    }
+
+    public void adicionarCliente(Clientes cliente) {
+        this.clientes.add(cliente);
+    }
+
+    public void adicionarItemCardapio(itemCardapio item) {
+        this.itensCardapio.add(item);
+    }
+
+    public void adicionarPedido(Pedidos pedido) {
+        this.pedidos.add(pedido);
+    }
+
+    public List<Pedidos> listarPedidosPorStatus(statusPedido status) {
+        List<Pedidos> pedidosFiltrados = new ArrayList<>();
+        for (Pedidos pedido : this.pedidos) {
+            if (pedido.getStatus() == status) {
+                pedidosFiltrados.add(pedido);
+            }
+        }
+        return pedidosFiltrados;
     }
 }

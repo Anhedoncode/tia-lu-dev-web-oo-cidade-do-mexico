@@ -2,7 +2,7 @@ public enum statusPedido {
     ACEITO,
     PREPARADO,
     FEITO,
-    AGUARDANDO_ENTERGADOR,
+    AGUARDANDO_ENTREGADOR,
     SAIU_PARA_ENTREGA,
     ENTREGUE
 }
