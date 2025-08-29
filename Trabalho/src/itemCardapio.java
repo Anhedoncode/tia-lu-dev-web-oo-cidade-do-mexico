@@ -10,5 +10,32 @@ public class itemCardapio {
         this.descricao = descricao;
         this.preco = preco;
         this.itemID = centralDeDados.gerarProximoItemID();
+    };
+
+    // Getters
+    public String getNome() {
+        return nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public int getItemID() {
+        return this.itemID;
+    }
+
+    @Override
+    public String toString() {
+        return "itemCardapio{" +
+                "nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", itemID=" + itemID +
+                ", preco=" + preco +
+                '}';
     }
 }
